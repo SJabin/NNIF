@@ -148,8 +148,8 @@ def train(args, model, data, max_seq_length, tokenizer, device, lr_rate,epochs=1
                       'labels':         batch[3]}
             loss, logits, pooler_output, hidden_states = model.forward(**inputs)
             #preds.append(torch.argmax(logits, dim=1).cpu().numpy())
-#             if args.gradient_accumulation_steps > 1:
-#                 loss = loss / args.gradient_accumulation_steps
+            if args.gradient_accumulation_steps > 1:
+                loss = loss / args.gradient_accumulation_steps
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)#args.max_grad_norm
 

@@ -394,10 +394,11 @@ if __name__ == '__main__':
     parser.add_argument('--detect', type=str, default=None, required=False,
                         choices=['mdre', 'lid', 'fgws', 'language_model', 'mahalanobis','nnif', 'rsv', 'shap'],
                         help='Type of detection.')
-    parser.add_argument('--k-nearest', type=int, default=-1, required=False,
-                        help='Number of nearest neighbours to use for lid.')
+    #FGWS
     parser.add_argument('--fp-threshold', type=float, default=0.9,
                         help='for FGWS detection to calculate gamma, false positive threshold.')
+    #DkNN and LID
+    parser.add_argument('--k_nearest', type=int, default=-1, help='number of nearest neighbors to use for LID/DkNN detection')
     
     #NNIF
     parser.add_argument("--warmup_steps", default=0, type=int, help="Linear warmup over warmup_steps.")
@@ -417,9 +418,6 @@ if __name__ == '__main__':
     parser.add_argument('--ablation', type=str, default='1111', help='for ablation test')
     parser.add_argument('--influence_on_decision', action='store_true',
                         help="Whether to compute influence on decision (rather than influence on ground truth)")
-    
-    # FOR DkNN and LID
-    parser.add_argument('--k_nearest', type=int, default=-1, help='number of nearest neighbors to use for LID/DkNN detection')
 
     # MAHANABOLIS
     parser.add_argument('--magnitude', type=float, default=-1, help='magnitude for mahalanobis detection')
@@ -576,7 +574,7 @@ if __name__ == '__main__':
             train_embeds, _, _, _ = get_emb_preds(model, tokenizer, max_length, batch_size, list(zip(train_texts, train_text_pairs)))
             np.save(os.path.join(result_dir, 'train_emb.npy'), train_embeds)
             
-            #for plotting neighbors
+            #for plotting training neighbors
             #reduced_train_embeds=TSNE(perplexity=15, n_components=2, init='pca', n_iter=5000, metric='euclidean', random_state=23).fit_transform(train_embeds)
             #np.save(os.path.join(result_dir, 'reduced_train_embeds.npy'), reduced_train_embeds)
         else:
@@ -590,7 +588,7 @@ if __name__ == '__main__':
             np.save(os.path.join(result_dir, 'test_emb.npy'), test_embeds)
             np.save(os.path.join(result_dir, 'adv_emb.npy'), adv_embeds)
             
-            #for plotting neighbors
+            #for plotting training neighbors
             #reduced_test_embeds=TSNE(perplexity=15, n_components=2, init='pca', n_iter=5000, metric='euclidean', random_state=23).fit_transform(test_embeds)
             #reduced_adv_embeds=TSNE(perplexity=15, n_components=2, init='pca', n_iter=5000, metric='euclidean', random_state=23).fit_transform(adv_embeds)
             #np.save(os.path.join(result_dir, 'reduced_test_embeds.npy'), reduced_test_embeds)
@@ -828,7 +826,6 @@ if __name__ == '__main__':
         #print("Adversarial text detector")
         detectors(result_dir, args.random_seed)
     
-    # Na Liu et.al. (2022) https://github.com/NaLiuAnna/MDRE
     elif args.detect == 'mdre':
         X = []
         y = []
@@ -892,7 +889,6 @@ if __name__ == '__main__':
 
         logistic_detector(np.asarray(X).T, np.asarray(y).T, args.random_seed)
     
-    # Na Liu et.al. (2022) https://github.com/NaLiuAnna/MDRE
     elif args.detect == 'lid':
         # set the number of nearest neighbours to use
         if args.k_nearest == -1:
@@ -941,7 +937,6 @@ if __name__ == '__main__':
     
             logistic_detector(X, y, args.random_seed)
     
-    # Na Liu et.al. (2022) https://github.com/NaLiuAnna/MDRE
     elif args.detect == 'fgws':
         vocab_file = os.path.join(args.dataset_path, 'aux_files/vocab.vocab')
         distance_matrix_file = os.path.join(args.dataset_path, 'aux_files/dist_counter.npy')

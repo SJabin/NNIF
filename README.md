@@ -12,6 +12,11 @@ Run `fine_tune.py` as below:
 ```
 python fine_tune.py --model-name="bert" --dataset-name="Mnli" --dataset-path="./multinli_1.0" --max-length=128
 ```
+## Generate Adversarial Texts
+Adversarial texts for this repo are generated using `generate_adv.py` (following [this](https://github.com/NaLiuAnna/MDRE) repo)
+```
+python generate_adv.py --dataset-name IMDB --dataset-path ./aclImdb --attack-class typo --max-length 512 --batch 0 --boxsize 25
+```
 
 ## Running the detectors
 Below adversarial text detection methods are implemented:
@@ -26,7 +31,7 @@ Below adversarial text detection methods are implemented:
 | LID| Using implementation https://github.com/NaLiuAnna/MDRE |
 | FGWS| Using implementation https://github.com/NaLiuAnna/MDRE |
 
-Adversarial texts for this repo are generated using `TextAttack`. After obtaining the fine-tuned LM and generating adversarial texts, run `detect.py` with the required arguments and observe the detector's performance. For example, use the below script to run the NNIF detector:
+After obtaining the fine-tuned LM and generating adversarial texts, run `detect.py` with the required arguments and observe the detector's performance. For example, use the below script to run the NNIF detector:
 ```
 python detect.py --detect="nnif" --dataset-name="IMDB" --dataset-path="./aclImdb_v1/aclImdb" --attack-class="typo" --adv-path="./Pruthi_test_adv_IMDB.csv" --influence_on_decision --max-length=128 --start 0 --end 5000 --model-dir="./bert_imdb/" --max-indices=10
 ```

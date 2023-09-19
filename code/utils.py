@@ -227,9 +227,6 @@ def convert_examples_to_features(texts, text_pairs, labels, label_names, max_seq
         assert len(input_mask) == max_seq_length
         assert len(segment_ids) == max_seq_length
         
-#         print(labels)
-#         print(input_ids.shape)
-#         sys.exit()
         if isinstance(labels, Iterable):
             #label_id = label_map[str(labels[i])] #imdb
             label_id = labels[i] #mnli
@@ -248,30 +245,7 @@ def convert_examples_to_features(texts, text_pairs, labels, label_names, max_seq
 
 
     
-# def add_noise_to_features(last_hidden_state, gradients, magnitude):
-# #     sequence_embedding = last_hidden_state
-    
-#     x = reduce_mean(last_hidden_state.detach().cpu().numpy(), axis=1, name='mean_embedding')
-#     print('x:', x.shape)
-#     embed_min = reduce_min(x, keepdims=True)
-#     embed_max = reduce_max(x, keepdims=True)
-#     x = (x - embed_min) / (embed_max - embed_min)
-#     noise = tfd.Laplace(constant([0.0]), constant([1.0 / magnitude[0]]))
-#     noise_s = noise.sample(sample_shape=128)
-#     print(noise_s.shape)
-#     x= tf.expand_dims(x, 1)
-#     #print('x:', x.shape)
-    
-#     #x += reshape(noise_s, shape=(-1))
-#     noisy_x = []
-#     for x_item in x:
-#         x_item += noise_s
-#         noisy_x.append(x_item)
-#     print(len(noisy_x))
-    
-#     return torch.as_tensor(np.array(noisy_x))
- 
-    
+  
     
 
 # set models' parameters

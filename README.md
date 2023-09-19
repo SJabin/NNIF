@@ -23,13 +23,13 @@ Below adversarial text detection methods are implemented:
 
 | Detector | |
 |----------|---|
-| NNIF | Image to text adoption https://github.com/giladcohen/NNIF_adv_defense|
-| Mahalanobis | Image to text adoption https://github.com/pokaxpoka/deep_Mahalanobis_detector/tree/master|
-| RSV| Adopted from https://github.com/JHL-HUST/RSV|
-| SHAP| Adopted from https://github.com/huberl/adversarial_shap_detect_Repl4NLP/|
-| MDRE| Using implementation https://github.com/NaLiuAnna/MDRE|
-| LID| Using implementation https://github.com/NaLiuAnna/MDRE |
-| FGWS| Using implementation https://github.com/NaLiuAnna/MDRE |
+| NNIF | Image to text adaption https://github.com/giladcohen/NNIF_adv_defense|
+| Mahalanobis | Image to text adaption https://github.com/pokaxpoka/deep_Mahalanobis_detector/tree/master|
+| RSV| Adapted from https://github.com/JHL-HUST/RSV|
+| SHAP| Adapted from https://github.com/huberl/adversarial_shap_detect_Repl4NLP/|
+| MDRE| Using implementation from https://github.com/NaLiuAnna/MDRE|
+| LID| Using implementation from https://github.com/NaLiuAnna/MDRE |
+| FGWS| Using implementation from https://github.com/NaLiuAnna/MDRE |
 
 After obtaining the fine-tuned LM and generating adversarial texts, run `detect.py` with the required arguments and observe the detector's performance. For example, use the below script to run the NNIF detector:
 ```

@@ -2,7 +2,7 @@
 This repository contains the codes for the paper "What Learned Representation and Influence Function Can Tell Us About Adversarial Examples".
 
 ## Environment set up
-This repo supports `>=Python 3.7`. The required libraries can be installed from the `requirement.txt` file by runnning the below script:
+This repo supports `>=Python 3.7`. The required libraries can be installed using the `requirement.txt` file by runnning the below script:
 ```
 pip install -r requirements.txt
 ```

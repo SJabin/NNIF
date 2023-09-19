@@ -41,6 +41,7 @@ python detect.py --detect="shap" --dataset-name="Mnli" --dataset-path="./multinl
 
 
 ## Citation
-Please follow the below citation to use the work:
+Please use the below citation to cite our work:
 ```
+TODO
 ```

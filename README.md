@@ -19,12 +19,12 @@ python generate_adv.py --dataset-name IMDB --dataset-path ./aclImdb --attack-cla
 ```
 
 ## Running the detectors
-Below adversarial text detection methods are implemented:
+Below adversarial text detection methods are implemented in this repository:
 
 | Detector | |
 |----------|---|
-| NNIF | Image to text adaption from https://github.com/giladcohen/NNIF_adv_defense|
-| Mahalanobis | Image to text adaption from https://github.com/pokaxpoka/deep_Mahalanobis_detector/tree/master|
+| NNIF | Image to text adaptation from https://github.com/giladcohen/NNIF_adv_defense|
+| Mahalanobis | Image to text adaptation from https://github.com/pokaxpoka/deep_Mahalanobis_detector/tree/master|
 | RSV| Adapted from https://github.com/JHL-HUST/RSV|
 | SHAP| Adapted from https://github.com/huberl/adversarial_shap_detect_Repl4NLP/|
 | MDRE| Using implementation from https://github.com/NaLiuAnna/MDRE|

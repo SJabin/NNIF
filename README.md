@@ -48,5 +48,12 @@ python detect.py --detect="shap" --dataset-name="Mnli" --dataset-path="./multinl
 ## Citation
 Please use the below citation to cite our work:
 ```
-TODO
+@misc{tonni2023learned,
+      title={What Learned Representations and Influence Functions Can Tell Us About Adversarial Examples}, 
+      author={Shakila Mahjabin Tonni and Mark Dras},
+      year={2023},
+      eprint={2309.10916},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```

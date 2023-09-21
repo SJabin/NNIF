@@ -1,4 +1,4 @@
-# NNIFAdvTextDetector
+# NNIF - Adversarial Text Detector
 This repository contains the codes for the paper "What Learned Representation and Influence Function Can Tell Us About Adversarial Examples".
 
 ## Environment set up

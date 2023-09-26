@@ -1,5 +1,5 @@
 # NNIF - Adversarial Text Detector
-This repository contains the codes for the paper "What Learned Representation and Influence Function Can Tell Us About Adversarial Examples".
+This repository contains the codes for the paper ["What Learned Representation and Influence Function Can Tell Us About Adversarial Examples"](https://arxiv.org/abs/2309.10916).
 
 ## Environment set up
 This repo supports `>=Python 3.7`. The required libraries can be installed using the `requirement.txt` file by runnning the below script:

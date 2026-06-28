@@ -1,6 +1,13 @@
 # NNIF - Adversarial Text Detector
 This repository contains the codes for the paper ["What Learned Representation and Influence Function Can Tell Us About Adversarial Examples"](https://arxiv.org/abs/2309.10916).
 
+The paper is motivated by recent evidence that representation-based detection methods from computer vision may also work well in NLP. In particular, we focus on influence functions, which estimate how much each training example contributes to a model's prediction.
+To investigate this, we adapt two representation-based adversarial detection methods from computer vision:
+
+1. **Nearest Neighbor Influence Functions (NNIF)**, which combines deep k-nearest-neighbour with influence functions to detect adversarial samples.
+
+2. **Mahalanobis detector**, which measures how far an example lies from the learned class distributions in representation space.
+   
 ## Environment set up
 This repo supports `>=Python 3.7`. The required libraries can be installed using the `requirement.txt` file by runnning the below script:
 ```

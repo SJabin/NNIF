@@ -1,4 +1,4 @@
-# NNIF - Adversarial Text Detector
+# NNIF & Mahalanobis - Adversarial Text Detectors
 This repository contains the codes for the paper ["What Learned Representation and Influence Function Can Tell Us About Adversarial Examples"](https://arxiv.org/abs/2309.10916).
 
 The paper is motivated by recent evidence that representation-based detection methods from computer vision may also work well in NLP. In particular, we focus on influence functions, which estimate how much each training example contributes to a model's prediction.
